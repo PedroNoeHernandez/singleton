@@ -45,7 +45,7 @@ public class Main {
 
 **Actividad:** identifica qué problema aparece al crear dos objetos distintos para la misma configuración.
 
-- [ ] Revisé el problema inicial y entiendo por qué `AppConfig` debería tener una sola instancia.
+- [x] Revisé el problema inicial y entiendo por qué `AppConfig` debería tener una sola instancia.
 
 ## 2. Convertir `AppConfig` en Singleton
 
@@ -77,9 +77,9 @@ public class AppConfig {
 
 **Actividad:** modifica la clase `AppConfig` para que nadie pueda crear nuevas instancias con `new` y para que todas las partes de la aplicación usen la misma referencia.
 
-- [ ] El constructor de `AppConfig` es privado.
-- [ ] Existe un campo `instance` `static` y `final`.
-- [ ] El método `getInstance()` devuelve la única instancia disponible.
+- [x] El constructor de `AppConfig` es privado.
+- [x] Existe un campo `instance` `static` y `final`.
+- [x] El método `getInstance()` devuelve la única instancia disponible.
 
 ## 3. Actualizar el cliente
 
@@ -102,8 +102,8 @@ public class Main {
 
 **Actividad:** ejecuta el programa después del cambio y comprueba que `config1` y `config2` apuntan a la misma instancia.
 
-- [ ] Actualicé `Main` para utilizar `AppConfig.getInstance()`.
-- [ ] Ejecuté el programa y comprobé el resultado de `(config1 == config2)`.
+- [x] Actualicé `Main` para utilizar `AppConfig.getInstance()`.
+- [x] Ejecuté el programa y comprobé el resultado de `(config1 == config2)`.
 
 ## 4. Compilar y ejecutar el ejercicio
 
@@ -118,22 +118,30 @@ El programa debe imprimir la configuración y mostrar que ambas referencias son 
 
 **Actividad:** guarda la salida que te permita demostrar que el patrón Singleton funciona correctamente.
 
-- [ ] El programa compiló sin errores.
-- [ ] Ejecuté `Main` y verifiqué la salida final.
+- [x] El programa compiló sin errores.
+- [x] Ejecuté `Main` y verifiqué la salida final.
 
 ## 5. Reflexión final
 
 Responde estas preguntas en tu cuaderno o en tu entrega:
 
-- ¿Cuál es el resultado de `(config1 == config2)` después de aplicar Singleton?
-- ¿Por qué el campo `instance` debe ser `static`?
-- ¿Qué ventaja tiene garantizar que exista una única instancia de configuración?
-- ¿Cuál es la principal desventaja de la inicialización ansiosa?
-- ¿Qué problema puede aparecer si el Singleton guarda estado global y la aplicación crece mucho?
+- ¿Cuál es el resultado de `(config1 == config2)` después de aplicar Singleton? Acorde a la lectura del código debe de ser true, recordando un poco de C las variables guiardan la misma referencia o más sencillo apuntna al mismo objeto en memoria.
+
+- ¿Por qué el campo `instance` debe ser `static`? Porque no pertenece a un objeot, sino a la clase, además de que de esta forma permite ser alcanzable sin la necesidad de un objeto, en el intersemetral se me dijo que static aplica par auna tributo o método y pertenece a la clase en sí misma, de no ser a´si se necesitaría de nuevo AppConfig para obtenerlo, recordemos que se solicitó cambiar a private el constructor.
+
+
+- ¿Qué ventaja tiene garantizar que exista una única instancia de configuración? Simplemente consitencia y mantenibilidad, así el cambio se refleja en toda la app y no se repiten objetos.
+
+
+- ¿Cuál es la principal desventaja de la inicialización ansiosa? al tener que cargar el objeto a la hora de la creación de la clase se gstan recursos innecearios.
+
+
+- ¿Qué problema puede aparecer si el Singleton guarda estado global y la aplicación crece mucho? Aparece el problema que cualquier parte del programa pued emodificarlo, entonces se vuelve complicado no podr identificar quien lo cambió y sobretodo el porqué, si se está en al etapa de pruebas igual se complica pues afecta a la spruebas ene fecto dominó.
+
 
 **Actividad:** anota tus respuestas y prepárate para discutirlas en clase.
 
-- [ ] Respondí las preguntas de análisis y entendí el impacto del patrón Singleton.
+- [x] Respondí las preguntas de análisis y entendí el impacto del patrón Singleton.
 
 ## 6. Criterio de finalización
 
@@ -145,4 +153,4 @@ Este ejercicio está terminado cuando:
 - el programa compila y ejecuta correctamente,
 - comprendes las ventajas y limitaciones del patrón.
 
-- [ ] He completado el ejercicio de Singleton en Java y puedo explicar el resultado final.
+- [x] He completado el ejercicio de Singleton en Java y puedo explicar el resultado final.
